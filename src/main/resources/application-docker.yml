@@ -2,7 +2,7 @@ server:
   port: 8000
 spring:
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: streamwise-kafka:9092
     consumer:
       group-id: streamwise-group
       auto-offset-reset: earliest
@@ -11,9 +11,9 @@ spring:
     listener:
       missing-topics-fatal: false
   datasource:
-    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://streamwise-postgres:5432/streamwise_db
+    username: streamwise
+    password: streamwise
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -23,7 +23,10 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-
+  data:
+    redis:
+      host: streamwise-redis
+      port: 6379
 management:
   endpoints:
     web:
