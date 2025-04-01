@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: streamwise
+  profiles:
+    active: dev

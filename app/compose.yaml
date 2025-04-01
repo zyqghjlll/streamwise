@@ -1,0 +1,14 @@
+networks:
+  streamwise-network:
+    external: true
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: streamwise-app
+    ports:
+      - "8000:8000"
+    networks:
+      - streamwise-network
