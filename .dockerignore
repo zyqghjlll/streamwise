@@ -1,0 +1,25 @@
+# 忽略 Maven 编译输出
+target/
+
+# 忽略 Docker volume 和数据文件夹
+volumes/
+
+# 忽略 IDE 配置文件
+.idea/
+*.iml
+
+# 忽略 Git 仓库
+.git/
+.gitignore
+
+# 忽略环境配置
+.env
+.env.*
+
+# 忽略临时/日志文件
+*.log
+*.tmp
+
+# 忽略文档和说明
+README.md
+LICENSE

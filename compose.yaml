@@ -43,7 +43,7 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_INTERNAL://0.0.0.0:29092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://streamwise-kafka:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://streamwise-kafka:9092,PLAINTEXT_INTERNAL://streamwise-kafka:29092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -85,7 +85,7 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ./volumes/redis/data:/data
+      - redis-data:/data
     command: [ "redis-server", "--appendonly", "yes" ]
     networks:
       - streamwise-network
@@ -114,3 +114,4 @@ services:
 
 volumes:
   postgres_data:
+  redis-data:

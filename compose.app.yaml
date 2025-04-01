@@ -5,10 +5,12 @@ networks:
 services:
   app:
     build:
-      context: .
+      context: deployment
       dockerfile: Dockerfile
     container_name: streamwise-app
     ports:
       - "8000:8000"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
       - streamwise-network
